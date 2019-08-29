@@ -3,7 +3,7 @@ import Phaser from 'phaser';
 const config = {
   type: Phaser.AUTO,
   width: 800,
-  height: 600,
+  height: 640,
   scene: {
     preload: preload,
     create: create
@@ -13,12 +13,12 @@ const config = {
 const game = new Phaser.Game(config);
 
 function preload() {
-  this.load.tilemapTiledJSON('map', '/map.json');
-  this.load.image('tile', '/tile.png');
+  this.load.tilemapTiledJSON('field', '/field.json');
+  this.load.image('overworld', '/overworld.png');
 }
 
 function create() {
-  const map = this.make.tilemap({ key: 'map' });
-  const tileset = map.addTilesetImage('tile', 'tile');
-  const layer = map.createStaticLayer('Tile Layer 1', tileset, 0, 0);
+  const map = this.make.tilemap({ key: 'field' });
+  const tileset = map.addTilesetImage('overworld', 'overworld');
+  const layer = map.createStaticLayer('base', tileset, 0, 0);
 }
